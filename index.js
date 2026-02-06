@@ -47,7 +47,9 @@ async function run() {
 
 app.get("/authors/:id", async (req, res) => {
   const id = req.params.id; // string
-  const result = await authorCollection.findOne({ _id: id }); // match string
+  const result = await authorCollection.findOne({ _id: id });      // match string
+ 
+
   // console.log("Found author:", result);
   res.send(result);
 });
@@ -109,8 +111,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-
-
