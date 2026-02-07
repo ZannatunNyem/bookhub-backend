@@ -12,9 +12,9 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
-// --------------------
-// MongoDB Setup (GLOBAL CACHED)
-// --------------------
+
+// MongoDB Setup (GLOBAL CACHED)//....
+
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.q7eeory.mongodb.net/bookStoreDB?appName=Cluster0`;
 
@@ -31,7 +31,7 @@ if (!global._mongoClientPromise) {
   });
 
   global._mongoClientPromise = client.connect().then(() => {
-    console.log("✅ MongoDB connected");
+    console.log("MongoDB connected");
     return client;
   });
 }
@@ -43,9 +43,9 @@ async function getDB() {
   return client.db("bookStoreDB");
 }
 
-// --------------------
-// Routes
-// --------------------
+
+// Routes--------------------
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -155,10 +155,9 @@ app.get('/cart', async (req, res) => {
   }
 });
 
-// --------------------
-// Start server
-// --------------------
+
+// Start server--------------------
 
 app.listen(port, () => {
-  console.log(`🚀 Server listening on port ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
